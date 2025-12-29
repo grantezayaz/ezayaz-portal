@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EZAYAZ AND CO Application Portal</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #212529;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header styles */
+        header {
+            background: linear-gradient(135deg, #c00000, #002147);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .company-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        /* Page styles */
+        .page {
+            display: none;
+            padding: 30px 0;
+        }
+        
+        .active {
+            display: block;
+        }
+        
+        /* Homepage styles */
+        .homepage-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .president-message {
+            background-color: #e9ecef;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            border-left: 4px solid #c00000;
+        }
+        
+        .president-name {
+            font-weight: 700;
+            color: #c00000;
+            font-size: 1.2rem;
+        }
+        
+        .btn {
+            background: linear-gradient(to right, #002147, #c00000);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* Form styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #002147;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ced4da;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #002147;
+            box-shadow: 0 0 0 3px rgba(0, 33, 71, 0.2);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .checkbox-group input {
+            margin-top: 5px;
+        }
+        
+        /* Verification page */
+        .verification-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-top: 30px;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .form-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .company-name {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                width: 100%;
+                padding: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1 class="company-name">EZAYAZ AND CO</h1>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Homepage -->
+        <div id="homePage" class="page active">
+            <div class="homepage-content">
+                <h2>Welcome to EZAYAZ AND CO Application Portal</h2>
+                
+                <div class="president-message">
+                    <p>We are proud to have <span class="president-name">Albert Emman</span> as our president, whose exceptional leadership and good administration have brought our company to new heights.</p>
+                </div>
+                
+                <button id="registerBtn" class="btn">Register Now</button>
+            </div>
+        </div>
+        
+        <!-- Registration Page -->
+        <div id="registerPage" class="page">
+            <div class="registration-content">
+                <h2>Registration Form</h2>
+                <form id="registrationForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" min="18" max="100" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <input type="text" id="state" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="zip">ZIP Code</label>
+                            <input type="text" id="zip" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="number1">Number 1</label>
+                            <input type="number" id="number1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="number2">Number 2</label>
+                            <input type="number" id="number2" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="number3">Number 3</label>
+                            <input type="number" id="number3" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="number4">Number 4</label>
+                            <input type="number" id="number4" required>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="verification" required>
+                        <label for="verification">I verify that all the information provided is accurate and complete.</label>
+                    </div>
+                    
+                    <button type="submit" class="btn">Submit Application</button>
+                    <button type="button" id="backToHome" class="btn" style="background: linear-gradient(to right, #6c757d, #495057); margin-top: 10px;">Back to Home</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Verification Page -->
+        <div id="verificationPage" class="page">
+            <div class="verification-content">
+                <h2>Verification</h2>
+                <p class="verification-instructions">Your application has been submitted successfully! Please enter the verification code that was sent to your phone number to complete the process.</p>
+                
+                <form id="verificationForm">
+                    <div class="form-group" style="max-width: 300px; margin: 0 auto;">
+                        <label for="verificationCode">Verification Code</label>
+                        <input type="text" id="verificationCode" placeholder="Enter 6-digit code" required>
+                    </div>
+                    
+                    <button type="submit" class="btn">Verify Application</button>
+                    <button type="button" id="backToHome2" class="btn" style="background: linear-gradient(to right, #6c757d, #495057); margin-top: 10px;">Back to Home</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 EZAYAZ AND CO. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Page navigation
+        document.getElementById('registerBtn').addEventListener('click', function() {
+            showPage('registerPage');
+        });
+        
+        document.getElementById('backToHome').addEventListener('click', function() {
+            showPage('homePage');
+        });
+        
+        document.getElementById('backToHome2').addEventListener('click', function() {
+            showPage('homePage');
+        });
+        
+        // Form submission handling
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real application, you would send this data to a server
+            // For this demo, we'll just show the verification page
+            showPage('verificationPage');
+            
+            // Reset form after submission
+            this.reset();
+        });
+        
+        document.getElementById('verificationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const code = document.getElementById('verificationCode').value;
+            
+            // In a real application, you would verify this code with your server
+            // For this demo, we'll just show a success message
+            alert(`Verification code ${code} has been accepted! Your application is now complete.`);
+            
+            // Reset form and go back to home
+            this.reset();
+            showPage('homePage');
+        });
+        
+        // Function to show a specific page
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show the requested page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
